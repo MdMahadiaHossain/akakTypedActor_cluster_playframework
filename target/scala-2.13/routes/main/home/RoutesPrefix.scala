@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/mnt/storage/Lab/tutorial/playwithreactivemongo/conf/home.routes
-// @DATE:Mon Aug 24 16:28:16 BDT 2020
+// @SOURCE:/mnt/storage/Lab/tutorial/playframework/playwithreactivemongo/conf/home.routes
+// @DATE:Tue Aug 25 01:16:17 BDT 2020
 
 
 package home {

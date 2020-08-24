@@ -27,40 +27,13 @@ class HomeController @Inject() (
     ex: ExecutionContext
 ) extends BaseController {
 
-  /**
-    * Create an Action to render an HTML page.
-    *
-    * The configuration in the `routes` file means that this method
-    * will be called when the application receives a `GET` request with
-    * a path of `/`.
-    */
+  
   def index() =
     Action { implicit request: Request[AnyContent] =>
      
       Ok(views.html.index())
     }
 
-  def hello(name: String, age: Int) =
-    Action { request =>
-      Ok(s"Hi, $name, your age is $age")
-    }
 
-  def hi(food: Int, drink: String) =
-    Action {
-      Ok(s"Hi, you love $food, $drink")
-    }
-
-  def go(place: String) =
-    Action.async { request =>
-      ws.url("https://stackoverflow.com/")
-        .withHttpHeaders()
-        .get()
-        .map { response =>
-          val x = response.body
-          import scala.concurrent.duration._
-          Ok
-        }(ex)
-
-    }
 
 }

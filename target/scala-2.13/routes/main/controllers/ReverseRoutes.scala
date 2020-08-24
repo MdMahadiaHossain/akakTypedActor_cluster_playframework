@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/mnt/storage/Lab/tutorial/playwithreactivemongo/conf/routes
-// @DATE:Mon Aug 24 16:28:15 BDT 2020
+// @SOURCE:/mnt/storage/Lab/tutorial/playframework/playwithreactivemongo/conf/routes
+// @DATE:Mon Aug 24 16:58:46 BDT 2020
 
 import play.api.mvc.Call
 

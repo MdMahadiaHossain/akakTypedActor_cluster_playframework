@@ -25,4 +25,5 @@ libraryDependencies ++= Seq(
 // Adds additional packages into conf/routes
 // play.sbt.routes.RoutesKeys.routesImport += "com.brainbinary.binders._"
 libraryDependencies += "com.typesafe.akka" %% "akka-cluster-typed" % "2.6.1"
+// without remote exception happends
 libraryDependencies += "com.typesafe.akka" %% "akka-remote" % "2.6.1"

@@ -1,12 +1,3 @@
 # An example controller showing a sample home page
 GET     /                          controllers.home.HomeController.index()
 
-GET     /hello                     controllers.home.HomeController.hello(name:String, age:Int)
-
-
-GET     /hello2                    controllers.home.Home2Controller.hello2()
-
-GET     /hi/:food/:drink/is/good                     controllers.home.HomeController.hi(food:Int,drink:String)
-
-
-GET     /xyz/*place                     controllers.home.HomeController.go(place:String)

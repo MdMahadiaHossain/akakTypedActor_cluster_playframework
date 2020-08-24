@@ -8,27 +8,45 @@ import akka.cluster.ClusterEvent.UnreachableMember
 import akka.cluster.ClusterEvent.MemberUp
 import akka.cluster.ClusterEvent.MemberRemoved
 import akka.actor.ActorLogging
+import akka.actor.typed.javadsl.Behaviors
+import akka.cluster.MemberStatus.Up
+import akka.cluster.MemberStatus.Removed
+import akka.cluster.typed.Subscribe
 
-class ClusterControllerActor extends Actor with ActorLogging {
+object ClusterControllerActor {
 
-  val cluster = Cluster(context.system)
   
 
-  override def preStart(): Unit = {
-    //#subscribe
-    println("called......................................")
-    cluster.subscribe(self, initialStateMode = InitialStateAsEvents, classOf[MemberEvent], classOf[UnreachableMember])
-    //#subscribe
-  }
-  override def receive: Actor.Receive = {
-    case x:String => println(x)
-    case MemberUp(member) =>
-      log.info("Member is Up: {}", member.address)
-    case UnreachableMember(member) =>
-      log.info("Member detected as unreachable: {}", member)
-    case MemberRemoved(member, previousStatus) =>
-      log.info("Member is Removed: {} after {}", member.address, previousStatus)
-    case _: MemberEvent => println("Member evernt listener")
-  }
+  
+  def receive() =
+    Behaviors.setup[MemberEvent] { context =>
+
+
+      val cluster = akka.cluster.typed.Cluster(context.getSystem)
+       
+      cluster.subscriptions ! Subscribe(context.getSelf, classOf[MemberEvent])
+
+      Behaviors.receiveMessage[MemberEvent] { msg =>
+        msg match {
+          case x: MemberEvent =>
+            println("Member evernt listener ........" + x.member.status)
+            x.member.status match {
+              case Up =>
+                println("Member is Up: {}", x.member.address)
+                akka.actor.typed.scaladsl.Behaviors.same
+              
+              case Removed =>
+                println(
+                  "Member is Removed: {} after {}",
+                  x.member.address
+                
+                )
+                
+            }
+            akka.actor.typed.scaladsl.Behaviors.same
+        }
+      }
+
+    }
 
 }

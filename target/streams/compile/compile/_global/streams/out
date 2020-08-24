@@ -1,7 +1,5 @@
-[0m[[0m[33mwarn[0m] [0m[0m/mnt/storage/Lab/tutorial/playwithreactivemongo/app/models/TestDAO.scala:53:34: Auto-application to `()` is deprecated. Supply the empty argument list `()` explicitly to invoke method value,[0m
-[0m[[0m[33mwarn[0m] [0m[0mor remove the empty argument list from its definition (Java-defined methods are exempt).[0m
-[0m[[0m[33mwarn[0m] [0m[0mIn Scala 3, an unapplied method like this will be eta-expanded into a function.[0m
-[0m[[0m[33mwarn[0m] [0m[0m  implicit val m = Macros.handler[Man][0m
-[0m[[0m[33mwarn[0m] [0m[0m                                 ^[0m
-[0m[[0m[33mwarn[0m] [0m[0m1 feature warning; re-run with -feature for details[0m
-[0m[[0m[33mwarn[0m] [0m[0mtwo warnings found[0m
+[0m[[0m[33mwarn[0m] [0m[0m/mnt/storage/Lab/tutorial/playframework/playwithreactivemongo/app/services/ClusterControllerActor.scala:33:22: match may not be exhaustive.[0m
+[0m[[0m[33mwarn[0m] [0m[0mIt would fail on the following inputs: Down, Exiting, Joining, Leaving, WeaklyUp[0m
+[0m[[0m[33mwarn[0m] [0m[0m            x.member.status match {[0m
+[0m[[0m[33mwarn[0m] [0m[0m                     ^[0m
+[0m[[0m[33mwarn[0m] [0m[0mone warning found[0m

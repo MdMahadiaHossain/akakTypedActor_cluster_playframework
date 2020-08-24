@@ -77,5 +77,16 @@ compile
 run
 run 9001
 run
-compile
+run 9001 -Dakka.remote.netty.tcp.port=2551 
+run 9001 
+run 9000
+run
 run 9001
+run
+run 9001
+compile
+run
+compile
+run
+compile
+run
